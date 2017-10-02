@@ -47,7 +47,7 @@ int main( int argc, char **argv )
 			if ( rc == 0 )
 				error( 1, 0, "server disconnected\n" );
 			lin[ rc ] = '\0';
-			if ( fputs( lin, stdout ) )
+			if ( fputs( lin, stdout ) == EOF)
 				error( 1, errno, "fputs failed" );
 		}
 		if ( FD_ISSET( 0, &readmask ) )
