@@ -64,6 +64,7 @@ static void set_address1( char *hname, char *sname,
 }
 
 /* readline - read a newline terminated record */
+/*
 int readline( SOCKET fd, char *bufptr, size_t len )
 {
 	char *bufx = bufptr;
@@ -98,6 +99,8 @@ int readline( SOCKET fd, char *bufptr, size_t len )
 	errno = EMSGSIZE;
 	return -1;
 }
+*/
+
 /* client - place holder for the client code */
 static void client( SOCKET s, struct sockaddr_in *peerp )
 {

@@ -14,8 +14,8 @@ EXECUTABLES = vrs vrc rlnumd tcpmux udpclient \
 	  simplec simples
 
 .c.o :
-	$(CC) -c -g -O -Wall $< -o $@
-
+	$(CC) -c -g -O0 $< -o $@
+#-Wall
 all	  : $(EXECUTABLES)
 
 lib/libetcp.a :
@@ -121,7 +121,7 @@ vrcv : vrcv.o lib/libetcp.a
 	$(CC) -Wall -g -o vrcv -L lib vrcv.o  $(LIBS)
 
 connectto : connectto.o
-	$(CC) -Wall -g -o connectto connectto.o
+	$(CC) -Wall -g -o connectto connectto.o -L lib $(LIBS)
 
 connectto1 : connectto1.o
 	$(CC) -Wall -g -o connectto1 connectto1.o

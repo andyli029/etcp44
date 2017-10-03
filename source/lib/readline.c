@@ -27,9 +27,10 @@ int readline( SOCKET fd, char *bufptr, size_t len )
 				return 0;
 			bp = b;
 		}
-		c = *bp++;
+		c = (*bp);
+        bp++;
 		*bufptr++ = c;
-		if ( c == '\n' )
+		if (c == '\n')
 		{
 			*bufptr = '\0';
 			return bufptr - bufx;

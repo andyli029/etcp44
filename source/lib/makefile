@@ -2,8 +2,8 @@ CC = gcc
 LIBFCNS =	error.o readcrlf.o readline.o readn.o readvrec.o set_address.o \
 			tcp_client.o tcp_server.o udp_client.o udp_server.o
 .c.o :
-	$(CC) -c -g -O -Wall $< -o $@
-
+	$(CC) -c -g -O0 $< -o $@
+#-Wall
 all : libetcp.a libsysv.a
 
 libetcp.a : $(LIBFCNS)

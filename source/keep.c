@@ -5,7 +5,7 @@ int main( int argc, char **argv )
 	SOCKET s1;
 	int on = 1;
 	int rc;
-	char buf[ 128 ];
+	char buf[ 128 ] = {0}; //10 init
 
 	INIT();
 	s = tcp_server( NULL, argv[ 1 ] );
