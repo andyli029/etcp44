@@ -12,13 +12,15 @@ int main( int argc, char **argv )
 	{
 		len = strlen( buf );
 		rc = send( s, buf, len, 0 );
-		if ( rc < 0 )
-			error( 1, errno, "send failed" );
+		if ( rc < 0 ) {
+            // sleep(3); //tip10: p68
+			error( 1, errno, "send failed.\n" );
+		}
 		rc = readline( s, buf, sizeof( buf ) );
-		if ( rc < 0 )
-			error( 1, errno, "readline failed" );
+		if ( rc < 1 )
+			error( 1, errno, "readline failed.\n" );
 		else if ( rc == 0 )
-			error( 1, 0, "server terminated\n" );
+			error( 1, 0, "server terminated.\n" );
 		else
 			fputs( buf, stdout );
 	}

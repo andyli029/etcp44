@@ -12,14 +12,14 @@ int main( int argc, char **argv )
 	s = tcp_server( NULL, argv[ 1 ] );
 	s1 = accept( s, NULL, NULL );
 	if ( !isvalidsock( s1 ) )
-		error( 1, errno, "accept failed" );
+		error( 1, errno, "accept failed.\n" );
 	while ( ( rc = readline( s1, buf, sizeof( buf ) ) ) > 0 )
 	{
 		sleep( 5 );
-		len = sprintf( buf, "received message %d\n", counter++ );
+		len = sprintf( buf, "received message %d.\n", counter++ );
 		rc = send( s1, buf, len, 0 );
 		if ( rc < 0 )
-			error( 1, errno, "send failed" );
+			error( 1, errno, "send failed.\n" );
 	}
 	EXIT( 0 );
 }
